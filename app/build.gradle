@@ -29,6 +29,7 @@ android {
 
 dependencies {
     // https://github.com/arthenica/ffmpeg-kit
-    implementation 'com.arthenica:ffmpeg-kit-full-gpl:5.1'
+    // Upstream ffmpeg-kit artifacts were retired and are no longer resolvable from Maven Central.
+    // Pin to the upstream ffmpeg-kit repository via JitPack and keep the existing full-gpl variant.
+    implementation 'com.github.arthenica:ffmpeg-kit-full-gpl:v6.0'
 }
-
