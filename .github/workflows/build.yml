@@ -55,7 +55,7 @@ jobs:
             ~/.cargo/registry
             ~/.cargo/git
             app/src/main/rust/target
-          key: ${{ runner.os }}-cargo-${{ hashFiles('app/src/main/rust/Cargo.toml', 'app/src/main/rust/rocket_seek_stream/Cargo.toml', 'app/src/main/rust/Cargo.lock', 'app/src/main/rust/rocket_seek_stream/Cargo.lock') }}
+          key: ${{ runner.os }}-cargo-${{ env.CARGO_NDK_VERSION }}-${{ hashFiles('app/src/main/rust/Cargo.toml', 'app/src/main/rust/rocket_seek_stream/Cargo.toml', 'app/src/main/rust/Cargo.lock', 'app/src/main/rust/rocket_seek_stream/Cargo.lock') }}
           restore-keys: |
             ${{ runner.os }}-cargo-
 
