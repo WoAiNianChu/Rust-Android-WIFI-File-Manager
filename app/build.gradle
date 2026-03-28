@@ -30,6 +30,6 @@ android {
 dependencies {
     // https://github.com/arthenica/ffmpeg-kit
     // Upstream ffmpeg-kit artifacts were retired and are no longer resolvable from Maven Central.
-    // Pin to a JitPack-published build that keeps the com.arthenica.ffmpegkit Java API used in this app.
-    implementation 'com.github.leventyayla:ffmpeg-kit:v6.0-4-morph-full-16kb'
+    // Pin to the upstream ffmpeg-kit repository via JitPack and keep the existing full-gpl variant.
+    implementation 'com.github.arthenica:ffmpeg-kit-full-gpl:v6.0'
 }
