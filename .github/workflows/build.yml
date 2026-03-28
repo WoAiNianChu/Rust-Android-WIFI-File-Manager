@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+    env:
+      NDK_VERSION: "25.2.9519653"
+      CARGO_NDK_VERSION: "4.1.2"
 
     steps:
       - name: Checkout code
@@ -26,7 +29,6 @@ jobs:
 
       - name: Install Android NDK
         run: |
-          NDK_VERSION="25.2.9519653"
           "${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin/sdkmanager" "ndk;${NDK_VERSION}"
           echo "ANDROID_NDK_HOME=${ANDROID_SDK_ROOT}/ndk/${NDK_VERSION}" >> "${GITHUB_ENV}"
 
@@ -40,11 +42,11 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.cargo/bin/cargo-ndk
-          key: ${{ runner.os }}-cargo-ndk-binary
+          key: ${{ runner.os }}-cargo-ndk-binary-${{ env.CARGO_NDK_VERSION }}
 
       - name: Install cargo-ndk
         if: steps.cache-cargo-ndk.outputs.cache-hit != 'true'
-        run: cargo install cargo-ndk
+        run: cargo install cargo-ndk --version ${CARGO_NDK_VERSION}
 
       - name: Cache Rust build artifacts
         uses: actions/cache@v4
