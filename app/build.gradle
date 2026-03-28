@@ -29,6 +29,5 @@ android {
 
 dependencies {
     // https://github.com/arthenica/ffmpeg-kit
-    implementation 'com.arthenica:ffmpeg-kit-full-gpl:5.1'
+    implementation 'com.github.leventyayla:ffmpeg-kit:v6.0-4-morph-full-16kb'
 }
-
